@@ -1,24 +1,27 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: "Break-It Down"
+description: "Using AWS X-Ray it breaks down an Api Gateway response time into different AWS services"
+author: "aleios - Liza Cullis, Sebastian Oliver"
 
-# Add your action's branding here. This will appear on the GitHub Marketplace.
+# Add your action"s branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: 'heart'
-  color: 'red'
+  icon: "cpu"
+  color: "blue"
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  name:
+    description: "The name of the api gateway path you want to test"
     required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: 'Your output description here'
+    default: "No name entered"
+  api-url:
+    description: "Url of the Api Gateway stage"
+    required: true
+    default: "No api url entered"
+  request-body:
+    description: "Request body to send to the api gateway"
+    required: true
+    default: "No request body entered"
 
 runs:
   using: node20
-  main: dist/index.js
+  main: dist/index.js ${{ inputs.name }} ${{ inputs.api-url }} ${{ inputs.request-body }}
