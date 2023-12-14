@@ -47,6 +47,12 @@ jobs:
         id: checkout
         uses: actions/checkout@v4
 
+      - name: Configure AWS credentials with assume role
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_DEV_ROLE_ARN }}
+          aws-region: eu-west-2
+
       - name: Test Local Action
         id: test-action
         uses: ./
