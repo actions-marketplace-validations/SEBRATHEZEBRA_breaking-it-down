@@ -1,5 +1,5 @@
 name: "Break-It Down"
-description: "Using AWS X-Ray it breaks down an Api Gateway response time into different AWS services"
+description: "Using AWS X-Ray it breaks down an Api Gateway request"
 author: "aleios - Liza Cullis, Sebastian Oliver"
 
 # Add your action"s branding here. This will appear on the GitHub Marketplace.
