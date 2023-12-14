@@ -55657,6 +55657,7 @@ const getTrace = async () => {
         const name = core.getInput('name');
         const apiEndpoint = core.getInput('api-endpoint');
         const requestBody = core.getInput('request-body');
+        console.log('requestBody: ', requestBody);
         console.log(`------------------------------Testing Request: ${name}------------------------------`);
         const startTime = new Date();
         await sendApiRequest(apiEndpoint, JSON.parse(requestBody));

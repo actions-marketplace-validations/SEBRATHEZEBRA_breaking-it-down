@@ -54,7 +54,3 @@ jobs:
           name: "Add item to ddb"
           api-url: "https://icpy3h8e41.execute-api.eu-west-2.amazonaws.com/seb/add-item-to-ddb" 
           request-body: "{ itemDescription: \"seb-ci-test-1\" }"
-
-      - name: Print Output
-        id: output
-        run: echo "${{ steps.test-action.outputs.time }}"

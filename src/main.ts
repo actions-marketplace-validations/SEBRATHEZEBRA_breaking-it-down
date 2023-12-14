@@ -18,6 +18,8 @@ export const getTrace = async (): Promise<void> => {
     const apiEndpoint = core.getInput('api-endpoint')
     const requestBody = core.getInput('request-body')
 
+    console.log('requestBody: ', requestBody)
+
     console.log(
       `------------------------------Testing Request: ${name}------------------------------`
     )
