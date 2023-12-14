@@ -7,6 +7,7 @@ on:
       - main
 
 permissions:
+  id-token: write
   contents: read
 
 jobs:
@@ -47,10 +48,16 @@ jobs:
         id: checkout
         uses: actions/checkout@v4
 
+      - name: Configure AWS credentials with assume role
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_DEV_ROLE_ARN }}
+          aws-region: eu-west-2
+
       - name: Test Local Action
         id: test-action
         uses: ./
         with:
           name: "Add item to ddb"
           api-url: "https://icpy3h8e41.execute-api.eu-west-2.amazonaws.com/seb/add-item-to-ddb" 
-          request-body: "{ itemDescription: \"seb-ci-test-1\" }"
+          request-body: "{ \"itemDescription\": \"seb-ci-test-1\" }"

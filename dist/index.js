@@ -55655,8 +55655,10 @@ const RETRY_INTERVAL = 5000; // 10 seconds interval
 const getTrace = async () => {
     try {
         const name = core.getInput('name');
-        const apiEndpoint = core.getInput('api-endpoint');
+        const apiEndpoint = core.getInput('api-url');
         const requestBody = core.getInput('request-body');
+        console.log('name: ', name);
+        console.log('apiEndpoint: ', apiEndpoint);
         console.log('requestBody: ', requestBody);
         console.log(`------------------------------Testing Request: ${name}------------------------------`);
         const startTime = new Date();
